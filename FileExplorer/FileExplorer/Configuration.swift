@@ -28,6 +28,7 @@ import Foundation
 struct Configuration {
     var actionsConfiguration = ActionsConfiguration()
     var filteringConfiguration = FilteringConfiguration()
+    var viewConfiguration = ViewConfiguration()
 }
 
 struct ActionsConfiguration {
@@ -41,6 +42,10 @@ struct ActionsConfiguration {
 struct FilteringConfiguration {
     var fileFilters: [Filter]
     var ignoredFileFilters: [Filter]
+}
+
+struct ViewConfiguration {
+    var pushMode = true
 }
 
 extension FilteringConfiguration {

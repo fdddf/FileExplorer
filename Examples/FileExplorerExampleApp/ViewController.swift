@@ -37,6 +37,7 @@ class ViewController: UIViewController {
         let vc = FileExplorerViewController()
          
         vc.delegate = self
+        vc.pushMode = true
         self.present(vc, animated: true, completion: nil)
     }
 }

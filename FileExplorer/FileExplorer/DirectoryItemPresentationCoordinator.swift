@@ -52,7 +52,7 @@ final class DirectoryItemPresentationCoordinator {
     }
     
     func start(directoryURL: URL, animated: Bool) {
-        let finishButtonHidden = navigationController?.viewControllers.count != 0
+        let finishButtonHidden = navigationController?.viewControllers.count != 0 || configuration.viewConfiguration.pushMode
 
         if directoryURL.hasDirectoryPath {
             let viewController = LoadingViewController<Any>.make(item: Item<Any>.directory(at: directoryURL)) { [weak self] loadedItem in

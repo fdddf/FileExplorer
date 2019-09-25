@@ -62,6 +62,9 @@ public final class FileExplorerViewController: UIViewController {
 
     /// A Boolean value indicating whether multiple files and/or directories can be choosen at a time.
     public var allowsMultipleSelection: Bool = true
+    
+    /// A Boolean value indicating whether is present mode for controller.present usage
+    public var pushMode: Bool = false
 
     /// Filters that determine which files are displayed by file explorer view controller.
     ///
@@ -119,7 +122,8 @@ public final class FileExplorerViewController: UIViewController {
                                                         canChooseDirectories: canChooseDirectories,
                                                         allowsMultipleSelection: allowsMultipleSelection)
         let filteringConfiguration = FilteringConfiguration(fileFilters: fileFilters, ignoredFileFilters: ignoredFileFilters)
-        let configuration = Configuration(actionsConfiguration: actionsConfiguration, filteringConfiguration: filteringConfiguration)
+        let viewConfiguration = ViewConfiguration(pushMode: pushMode)
+        let configuration = Configuration(actionsConfiguration: actionsConfiguration, filteringConfiguration: filteringConfiguration, viewConfiguration: viewConfiguration)
 
         if let item = Item<Any>.at(initialDirectoryURL, isDirectory: true) {
             coordinator.start(item: item, fileSpecifications: fileSpecifications, configuration: configuration, animated: false)
